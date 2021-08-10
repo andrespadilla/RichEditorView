@@ -557,5 +557,12 @@ import UIKit
         blur()
         return true
     }
-
+    
+    public func rectForSelectedText() -> CGRect {
+        var rect = CGRectFromString(runJS("RE.getRectForSelectedText()"))
+        rect.origin.x += self.webView.frame.origin.x;
+        rect.origin.y += self.webView.frame.origin.y;
+        return rect;
+    }
+    
 }

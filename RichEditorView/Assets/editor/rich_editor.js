@@ -449,3 +449,14 @@ RE.getRelativeCaretYPosition = function() {
 
     return y;
 };
+
+// Method that gets the Rect of current selected text
+// and returns in a JSON format
+RE.getRectForSelectedText = function(elm) {
+    if (typeof elm === "undefined") {
+        elm = window.getSelection().getRangeAt(0);
+    }
+
+    var rect = elm.getBoundingClientRect();
+    return "{{" + rect.left + "," + rect.top + "}, {" + rect.width + "," + rect.height + "}}";
+}
